@@ -1,0 +1,24 @@
+{
+  "results": [
+    {
+      "command": "'/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/root/projects/project-oh-my-pi-fork/packages'",
+      "mean": 0.023286606333333335,
+      "stddev": 0.0007091849932072274,
+      "median": 0.022963324,
+      "user": 0.08866833333333334,
+      "system": 0.048716666666666665,
+      "min": 0.022796665,
+      "max": 0.024099830000000003,
+      "times": [
+        0.022963324,
+        0.024099830000000003,
+        0.022796665
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}
