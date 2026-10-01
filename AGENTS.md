@@ -191,3 +191,16 @@ These are upstream-owned commands, not new fork-specific quality wrappers.
 - Check link identity, retained replicas, metadata changes, and report compatibility for cleanup-related changes.
 - Treat hash matches as the grouping mechanism, not a byte-by-byte comparison guarantee.
 - For tracking-only changes, run the bundled ledger validator; Cargo builds and tests do not validate this contract.
+
+## Performance Benchmark
+
+- Use `/root/OneDriveBackup-2024-11-19/Archive` as the fixed real-directory benchmark dataset.
+- Build the release binary before comparing implementations: `cargo build --release --locked -p fclones`.
+- Run the benchmark with `bash benchmark.sh /root/OneDriveBackup-2024-11-19/Archive`.
+- Keep the dataset and scan options unchanged between before-and-after measurements.
+- `benchmark.sh` performs one warmup and three measured scans within an approximately 30-second budget.
+- Every started benchmark must automatically save a separate JSON record under `benchmarks/results/`.
+- Preserve individual timings, the command, checkout revision, binary hash, exit status, and failure diagnostics.
+- Keep failed or interrupted runs as research evidence, but never treat them as completed performance measurements.
+- The benchmark only runs `group`; never modify the real dataset or enable persistent file-hash caching.
+- Keep benchmark tooling, results, and this fork-only context out of upstream contribution diffs.

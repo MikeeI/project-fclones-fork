@@ -1,0 +1,17 @@
+{
+  "status": "timed_out",
+  "exit_code": 124,
+  "results": [],
+  "metadata": {
+    "started_at": "2026-10-01T03:28:54.299481148Z",
+    "dataset": "/root/OneDriveBackup-2024-11-19",
+    "command": "'/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/root/OneDriveBackup-2024-11-19'",
+    "checkout_revision": "59bb181ec11a4f8d246544b02ba1454c40751d44",
+    "binary_sha256": "17cb26f4d125abb014be537625e6879c624cc7acf59e8faab17a1c0e0c6a734c",
+    "warmup_runs": 1,
+    "requested_runs": 3,
+    "time_limit_seconds": 29
+  },
+  "finished_at": "2026-10-01T03:29:23.319419754Z",
+  "diagnostics": "Benchmark 1: '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/root/OneDriveBackup-2024-11-19'\n"
+}
