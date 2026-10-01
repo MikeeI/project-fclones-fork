@@ -7,7 +7,7 @@ This file owns `Next finding ID` and projects current issue-file state.
 `Next-Action` is the 2–6 word `Next-Action/Summary` projection from the issue record.
 When a row disagrees with its issue file, correct the row from the issue file in the same task.
 
-Next finding ID: ISSUE-005
+Next finding ID: ISSUE-007
 
 ## Open-Findings
 
@@ -17,6 +17,8 @@ Next finding ID: ISSUE-005
 | [ISSUE-002](issues/ISSUE-002.md) | Walking: one heap-backed scope task per regular file | Investigating | Pull-Request-Implementation | Not-Selected | Medium | Select publication target | Not published. |
 | [ISSUE-003](issues/ISSUE-003.md) | Reports: repeated argument-backed isolation filter construction | Investigating | Pull-Request-Implementation | Not-Selected | Medium | Select publication target | Not published. |
 | [ISSUE-004](issues/ISSUE-004.md) | JSON reports: redundant hash and path clones | Investigating | Pull-Request-Implementation | Not-Selected | Low | Select publication target | Not published. |
+| [ISSUE-005](issues/ISSUE-005.md) | Hashing: repeated Linux memory-status object construction | Investigating | Pull-Request-Implementation | Not-Selected | Low | Resolve refresh failure contract | Not published. |
+| [ISSUE-006](issues/ISSUE-006.md) | Progress: hidden status workers spin without sleeping | Investigating | Pull-Request-Implementation | Not-Selected | Medium | Select publication target | Not published. |
 
 ## Archived-Findings
 

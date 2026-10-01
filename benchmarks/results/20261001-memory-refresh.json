@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "command": "target/release/examples/memory-refresh --json --iterations 10000 --runs 5",
+  "rust_version": "1.74.1",
+  "sysinfo_version": "0.29.10",
+  "iterations": 10000,
+  "constructor_seconds": [0.47941942, 0.480091294, 0.48011579, 0.477867575, 0.479209811],
+  "fresh_refresh_seconds": [0.704052927, 0.705334009, 0.70080982, 0.701494248, 0.700571799],
+  "reused_refresh_seconds": [0.218423946, 0.216552721, 0.215450399, 0.228547737, 0.216213733],
+  "scope": "Microbenchmark only; no end-to-end speedup established.",
+  "reuse_contract": "Successful complete refreshes only; silent or partial refresh failures can retain stale values."
+}

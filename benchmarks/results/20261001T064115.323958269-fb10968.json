@@ -1,0 +1,79 @@
+{
+  "status": "complete",
+  "exit_code": 0,
+  "results": [
+    {
+      "command": "'/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.Fk3kZ7s67l' '/tmp/fclones-performance.DIZ3Ws8o/progress-fixed' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/root/OneDriveBackup-2024-11-19/Archive'",
+      "mean": 1.460870607333333,
+      "stddev": 0.03298665702418602,
+      "median": 1.465556927,
+      "user": 2.8586496666666665,
+      "system": 7.3537496666666655,
+      "min": 1.425791407,
+      "max": 1.491263488,
+      "times": [
+        1.425791407,
+        1.465556927,
+        1.491263488
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "started_at": "2026-10-01T06:41:15.321565157Z",
+    "dataset": "/root/OneDriveBackup-2024-11-19/Archive",
+    "command": "'/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.Fk3kZ7s67l' '/tmp/fclones-performance.DIZ3Ws8o/progress-fixed' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/root/OneDriveBackup-2024-11-19/Archive'",
+    "checkout_revision": "fb1096856f0e4b97f1266da59c70b38477c3db34",
+    "binary_sha256": "b5a8259a80f6915bd6a36184e9fb6b470ee73d91d81e768e8663956be041b042",
+    "hash_fn": "metro",
+    "hash_cache_home": "",
+    "page_cache": "warm; no global eviction",
+    "devices": [
+      {
+        "path": "/root/OneDriveBackup-2024-11-19/Archive",
+        "device": "/dev/mapper/vg0-root",
+        "kind": "SSD",
+        "file_system": "ext4",
+        "configured_random_threads": 8,
+        "configured_sequential_threads": 8,
+        "resolved_random_threads": 8,
+        "resolved_sequential_threads": 8
+      }
+    ],
+    "warmup_runs": 1,
+    "requested_runs": 3,
+    "time_limit_seconds": 29
+  },
+  "finished_at": "2026-10-01T06:41:21.112915140Z",
+  "diagnostics": "Benchmark 1: '/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.Fk3kZ7s67l' '/tmp/fclones-performance.DIZ3Ws8o/progress-fixed' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/root/OneDriveBackup-2024-11-19/Archive'\n[2026-10-01 08:41:15.358] progress-fixed:  info: Started grouping\n[2026-10-01 08:41:15.580] progress-fixed:  info: Scanned 156319 file entries\n[2026-10-01 08:41:15.580] progress-fixed:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-01 08:41:15.606] progress-fixed:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-01 08:41:15.608] progress-fixed:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-01 08:41:15.736] progress-fixed:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-01 08:41:15.751] progress-fixed:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-01 08:41:16.698] progress-fixed:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-01 08:41:16.730] progress-fixed:  info: Started grouping\n[2026-10-01 08:41:16.951] progress-fixed:  info: Scanned 156319 file entries\n[2026-10-01 08:41:16.951] progress-fixed:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-01 08:41:16.977] progress-fixed:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-01 08:41:16.979] progress-fixed:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-01 08:41:17.107] progress-fixed:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-01 08:41:17.123] progress-fixed:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-01 08:41:18.109] progress-fixed:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-01 08:41:18.156] progress-fixed:  info: Started grouping\n[2026-10-01 08:41:18.377] progress-fixed:  info: Scanned 156319 file entries\n[2026-10-01 08:41:18.378] progress-fixed:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-01 08:41:18.404] progress-fixed:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-01 08:41:18.405] progress-fixed:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-01 08:41:18.532] progress-fixed:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-01 08:41:18.556] progress-fixed:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-01 08:41:19.580] progress-fixed:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-01 08:41:19.622] progress-fixed:  info: Started grouping\n[2026-10-01 08:41:19.844] progress-fixed:  info: Scanned 156319 file entries\n[2026-10-01 08:41:19.844] progress-fixed:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-01 08:41:19.880] progress-fixed:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-01 08:41:19.882] progress-fixed:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-01 08:41:20.009] progress-fixed:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-01 08:41:20.034] progress-fixed:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-01 08:41:21.074] progress-fixed:  info: Found 22040 (10.9 GB) redundant files\n  Time (mean ± σ):      1.461 s ±  0.033 s    [User: 2.859 s, System: 7.354 s]\n  Range (min … max):    1.426 s …  1.491 s    3 runs\n \n",
+  "resource_samples": [
+    {
+      "max_rss_kib": 42372,
+      "user_seconds": 2.79,
+      "system_seconds": 7.04,
+      "elapsed_seconds": 1.37
+    },
+    {
+      "max_rss_kib": 43776,
+      "user_seconds": 2.85,
+      "system_seconds": 7.25,
+      "elapsed_seconds": 1.42
+    },
+    {
+      "max_rss_kib": 44032,
+      "user_seconds": 2.89,
+      "system_seconds": 7.32,
+      "elapsed_seconds": 1.46
+    },
+    {
+      "max_rss_kib": 45316,
+      "user_seconds": 2.83,
+      "system_seconds": 7.47,
+      "elapsed_seconds": 1.49
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "dataset": "/root/OneDriveBackup-2024-11-19/Archive",
+  "source_revision": "611fe915a5b84455b3d23b4b7bae25ddc5a26359",
+  "upstream_base": "a74f90d293e05856d19a4c0ac2b29b46ef16cf23",
+  "final_binary_sha256": "3824828ba1c6e1207484cf41b8e5522e6ba60b896627f4a60b32e11f364c2d26",
+  "contribution": {
+    "branch": "fix/hidden-progress-worker",
+    "commit": "e7debc16b6548585d2138fa6e6a5fc25cc0275b0",
+    "published_upstream": false
+  },
+  "conditions": {
+    "rust": "1.74.1",
+    "kernel": "6.8.0-107-generic",
+    "device": "/dev/mapper/vg0-root",
+    "kind": "SSD",
+    "filesystem": "ext4",
+    "main_threads": 8,
+    "random_threads": 8,
+    "hash_fn": "metro",
+    "persistent_hash_cache": false,
+    "global_page_cache_eviction": false,
+    "benchmark_owner": "benchmark.sh",
+    "warmup_runs_per_record": 1,
+    "measured_runs_per_record": 3,
+    "mount_isolation": "private namespace masks /mnt only"
+  },
+  "records": [
+    {
+      "case": "baseline_initial",
+      "record": "benchmarks/results/20261001T061458.483193614-b9474a7.json",
+      "binary_sha256": "e75f7be9a8d9decce7e71756500abb0401d84d7d528f4f5fbdfde99e19f941c3",
+      "median_seconds": 1.314405195,
+      "stddev_seconds": 0.09325278896438992
+    },
+    {
+      "case": "workers_1",
+      "record": "benchmarks/results/20261001T064040.701409948-fb10968.json",
+      "binary_sha256": "b5a8259a80f6915bd6a36184e9fb6b470ee73d91d81e768e8663956be041b042",
+      "median_seconds": 3.641729604,
+      "stddev_seconds": 0.06879855663974484
+    },
+    {
+      "case": "workers_2",
+      "record": "benchmarks/results/20261001T064055.634051543-fb10968.json",
+      "binary_sha256": "b5a8259a80f6915bd6a36184e9fb6b470ee73d91d81e768e8663956be041b042",
+      "median_seconds": 3.300532598,
+      "stddev_seconds": 0.5195439576793072
+    },
+    {
+      "case": "workers_4",
+      "record": "benchmarks/results/20261001T064107.382110632-fb10968.json",
+      "binary_sha256": "b5a8259a80f6915bd6a36184e9fb6b470ee73d91d81e768e8663956be041b042",
+      "median_seconds": 1.854791373,
+      "stddev_seconds": 0.08208421454826292
+    },
+    {
+      "case": "workers_8",
+      "record": "benchmarks/results/20261001T064115.323958269-fb10968.json",
+      "binary_sha256": "b5a8259a80f6915bd6a36184e9fb6b470ee73d91d81e768e8663956be041b042",
+      "median_seconds": 1.465556927,
+      "stddev_seconds": 0.03298665702418602
+    },
+    {
+      "case": "buffer_256_fixed_advice",
+      "record": "benchmarks/results/20261001T064820.769122092-fb10968.json",
+      "binary_sha256": "cc7ebb592b922d60bb8b69fe7cc79f605c3022f2a981819defd749af078da661",
+      "median_seconds": 1.670514121,
+      "stddev_seconds": 0.3099025180845804
+    },
+    {
+      "case": "buffer_64_fixed_advice",
+      "record": "benchmarks/results/20261001T064827.668886364-fb10968.json",
+      "binary_sha256": "b5a8259a80f6915bd6a36184e9fb6b470ee73d91d81e768e8663956be041b042",
+      "median_seconds": 1.579053625,
+      "stddev_seconds": 0.0965295861609871
+    },
+    {
+      "case": "buffer_256_fixed_advice",
+      "record": "benchmarks/results/20261001T064834.110211223-fb10968.json",
+      "binary_sha256": "cc7ebb592b922d60bb8b69fe7cc79f605c3022f2a981819defd749af078da661",
+      "median_seconds": 1.696634218,
+      "stddev_seconds": 0.09585497281797632
+    },
+    {
+      "case": "buffer_64_fixed_advice",
+      "record": "benchmarks/results/20261001T064840.755592819-fb10968.json",
+      "binary_sha256": "b5a8259a80f6915bd6a36184e9fb6b470ee73d91d81e768e8663956be041b042",
+      "median_seconds": 1.559221835,
+      "stddev_seconds": 0.03680354558171821
+    },
+    {
+      "case": "progress_baseline",
+      "record": "benchmarks/results/20261001T065741.927433655-fb10968.json",
+      "binary_sha256": "e75f7be9a8d9decce7e71756500abb0401d84d7d528f4f5fbdfde99e19f941c3",
+      "median_seconds": 1.616541918,
+      "stddev_seconds": 0.17442228677222893
+    },
+    {
+      "case": "progress_fixed",
+      "record": "benchmarks/results/20261001T065748.279853133-fb10968.json",
+      "binary_sha256": "b5a8259a80f6915bd6a36184e9fb6b470ee73d91d81e768e8663956be041b042",
+      "median_seconds": 1.647365336,
+      "stddev_seconds": 0.021194640488994186
+    },
+    {
+      "case": "progress_baseline",
+      "record": "benchmarks/results/20261001T065755.025443707-fb10968.json",
+      "binary_sha256": "e75f7be9a8d9decce7e71756500abb0401d84d7d528f4f5fbdfde99e19f941c3",
+      "median_seconds": 1.7076351120000002,
+      "stddev_seconds": 0.028252984879709363
+    },
+    {
+      "case": "progress_fixed",
+      "record": "benchmarks/results/20261001T065801.787019468-fb10968.json",
+      "binary_sha256": "b5a8259a80f6915bd6a36184e9fb6b470ee73d91d81e768e8663956be041b042",
+      "median_seconds": 2.370234973,
+      "stddev_seconds": 0.31416703244709515
+    },
+    {
+      "case": "buffer_256_aligned_advice",
+      "record": "benchmarks/results/20261001T072623.647133883-fb10968.json",
+      "binary_sha256": "a218ab0b227d0c5b974c2ea15d42ddd80aafa8db5fa89726031788b240ade93c",
+      "median_seconds": 1.784298672,
+      "stddev_seconds": 0.0641618632285026
+    },
+    {
+      "case": "buffer_64_aligned_advice",
+      "record": "benchmarks/results/20261001T072630.643918007-fb10968.json",
+      "binary_sha256": "3824828ba1c6e1207484cf41b8e5522e6ba60b896627f4a60b32e11f364c2d26",
+      "median_seconds": 1.9274540020000002,
+      "stddev_seconds": 0.035221169891857224
+    },
+    {
+      "case": "buffer_256_aligned_advice",
+      "record": "benchmarks/results/20261001T072638.374409560-fb10968.json",
+      "binary_sha256": "a218ab0b227d0c5b974c2ea15d42ddd80aafa8db5fa89726031788b240ade93c",
+      "median_seconds": 1.947665566,
+      "stddev_seconds": 0.01184706541614634
+    },
+    {
+      "case": "buffer_64_aligned_advice",
+      "record": "benchmarks/results/20261001T072646.255237141-fb10968.json",
+      "binary_sha256": "3824828ba1c6e1207484cf41b8e5522e6ba60b896627f4a60b32e11f364c2d26",
+      "median_seconds": 1.987335719,
+      "stddev_seconds": 0.009526437475897211
+    },
+    {
+      "case": "buffer_64_aligned_advice",
+      "record": "benchmarks/results/20261001T072829.971073159-fb10968.json",
+      "binary_sha256": "3824828ba1c6e1207484cf41b8e5522e6ba60b896627f4a60b32e11f364c2d26",
+      "median_seconds": 1.783081949,
+      "stddev_seconds": 0.06180875447185148
+    },
+    {
+      "case": "buffer_256_aligned_advice",
+      "record": "benchmarks/results/20261001T072837.276792354-fb10968.json",
+      "binary_sha256": "a218ab0b227d0c5b974c2ea15d42ddd80aafa8db5fa89726031788b240ade93c",
+      "median_seconds": 1.844940848,
+      "stddev_seconds": 0.04941503767705955
+    },
+    {
+      "case": "buffer_64_aligned_advice",
+      "record": "benchmarks/results/20261001T072844.758253274-fb10968.json",
+      "binary_sha256": "3824828ba1c6e1207484cf41b8e5522e6ba60b896627f4a60b32e11f364c2d26",
+      "median_seconds": 1.9678939510000002,
+      "stddev_seconds": 0.015461435846162311
+    },
+    {
+      "case": "buffer_256_aligned_advice",
+      "record": "benchmarks/results/20261001T072852.688719631-fb10968.json",
+      "binary_sha256": "a218ab0b227d0c5b974c2ea15d42ddd80aafa8db5fa89726031788b240ade93c",
+      "median_seconds": 1.987897771,
+      "stddev_seconds": 0.009444262087134917
+    }
+  ],
+  "decisions": {
+    "hidden_progress": "Remove hidden renderers and workers; use existing NoProgressBar for disabled trait callers.",
+    "sequential_workers": {
+      "retained": 8,
+      "tested": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "scope": "This dataset and host only; library device defaults are unchanged."
+    },
+    "hash_buffer": {
+      "retained_bytes": 65536,
+      "tested_bytes": [
+        65536,
+        262144
+      ],
+      "advice_cutoff": "strictly less than requested buffer length",
+      "fixed_advice_trial": "256 KiB was slower in both paired blocks.",
+      "aligned_advice_trial": "256 KiB won when scheduled first and lost when scheduled second; no robust advantage after order reversal.",
+      "aligned_block_median_seconds": {
+        "65536": 1.9476739765000002,
+        "262144": 1.8963032069999999
+      },
+      "default_changed": false
+    },
+    "cache_policy": "Preserve per-file fresh memory checks, free-memory threshold, and retained prefix; do not blindly remove deliberate drop-behind.",
+    "memory_status_reuse": {
+      "finding": "ISSUE-005",
+      "implemented": false,
+      "blocker": "sysinfo 0.29.10 silently retains fields after failed or partial refreshes; no public reset, success/completeness status, memory-only constructor, or prototype clone.",
+      "clone_probe": "Rust 1.74.1 rejected System::clone with E0599.",
+      "excluded": "TLS-only reuse with stale failure state."
+    }
+  },
+  "cache_diagnostic": {
+    "binary_sha256": "b5a8259a80f6915bd6a36184e9fb6b470ee73d91d81e768e8663956be041b042",
+    "method": "strace -f -qq --seccomp-bpf -e trace=fadvise64",
+    "timing_used_as_benchmark": false,
+    "advice_calls": {
+      "POSIX_FADV_RANDOM": 97354,
+      "POSIX_FADV_SEQUENTIAL": 7186,
+      "POSIX_FADV_DONTNEED": 348
+    },
+    "eligible_memory_checks": 4304,
+    "failed_syscalls": 0,
+    "dontneed_advised_bytes": 2086172485,
+    "actual_eviction_proven": false,
+    "before_scan_memory_kib": {
+      "MemTotal": 131817448,
+      "MemFree": 10263968,
+      "MemAvailable": 87077052
+    },
+    "constructor_serial_time_proxy_seconds": 0.20634211836799998,
+    "constructor_proxy_source": "benchmarks/results/20261001-memory-refresh.json",
+    "references": [
+      "https://man7.org/linux/man-pages/man5/proc_meminfo.5.html",
+      "https://man7.org/linux/man-pages/man2/posix_fadvise.2.html"
+    ]
+  },
+  "verification": {
+    "format": "passed",
+    "clippy": "passed; warnings and rust-2018-idioms denied",
+    "workspace_build": "passed; warnings denied",
+    "tests": {
+      "passed": 176,
+      "failed": 0,
+      "new_permanent_tests": 0
+    },
+    "release_cli_and_examples": "passed",
+    "normalized_json_reports": {
+      "equal": true,
+      "groups": 9356,
+      "removed_header_fields": [
+        "timestamp",
+        "command"
+      ]
+    },
+    "cli_progress_modes": [
+      "false",
+      "auto with nonterminal stderr",
+      "quiet overrides true",
+      "true with actual PTY rendering"
+    ],
+    "public_hidden_bar_smoke": {
+      "held_ms": 300,
+      "threads_before": 1,
+      "threads_while_held": 1,
+      "threads_after_drop": 1
+    },
+    "thread_creation_reproduction": {
+      "input": "two identical 27-byte files",
+      "progress": false,
+      "main_threads": 1,
+      "random_threads": 1,
+      "sequential_threads": 1,
+      "successful_creations": {
+        "baseline": 11,
+        "final": 3
+      },
+      "removed_creations": 8,
+      "baseline_binary_sha256": "e75f7be9a8d9decce7e71756500abb0401d84d7d528f4f5fbdfde99e19f941c3",
+      "final_binary_sha256": "3824828ba1c6e1207484cf41b8e5522e6ba60b896627f4a60b32e11f364c2d26"
+    },
+    "discarded_initial_baseline_api_probe": "Library linkage did not reliably identify the frozen baseline; not used for before/after claims."
+  },
+  "performance_verdict": "Hidden worker removal is reproduced. No reliable total elapsed-time speedup is demonstrated; timing drift and shared-host variance remain material.",
+  "temporary_artifacts": "Frozen binaries, raw traces, JSON report payloads, API probes, and the contribution worktree are disposable and not part of the upstream diff."
+}

@@ -1,0 +1,79 @@
+{
+  "status": "complete",
+  "exit_code": 0,
+  "results": [
+    {
+      "command": "'/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.krLTv7FUhu' '/tmp/fclones-performance.DIZ3Ws8o/buffer-256k' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/root/OneDriveBackup-2024-11-19/Archive'",
+      "mean": 1.6447107933333334,
+      "stddev": 0.09585497281797632,
+      "median": 1.696634218,
+      "user": 2.8799146666666666,
+      "system": 7.700731666666666,
+      "min": 1.534095999,
+      "max": 1.703402163,
+      "times": [
+        1.703402163,
+        1.696634218,
+        1.534095999
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "started_at": "2026-10-01T06:48:34.107402542Z",
+    "dataset": "/root/OneDriveBackup-2024-11-19/Archive",
+    "command": "'/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.krLTv7FUhu' '/tmp/fclones-performance.DIZ3Ws8o/buffer-256k' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/root/OneDriveBackup-2024-11-19/Archive'",
+    "checkout_revision": "fb1096856f0e4b97f1266da59c70b38477c3db34",
+    "binary_sha256": "cc7ebb592b922d60bb8b69fe7cc79f605c3022f2a981819defd749af078da661",
+    "hash_fn": "metro",
+    "hash_cache_home": "",
+    "page_cache": "warm; no global eviction",
+    "devices": [
+      {
+        "path": "/root/OneDriveBackup-2024-11-19/Archive",
+        "device": "/dev/mapper/vg0-root",
+        "kind": "SSD",
+        "file_system": "ext4",
+        "configured_random_threads": 8,
+        "configured_sequential_threads": 8,
+        "resolved_random_threads": 8,
+        "resolved_sequential_threads": 8
+      }
+    ],
+    "warmup_runs": 1,
+    "requested_runs": 3,
+    "time_limit_seconds": 29
+  },
+  "finished_at": "2026-10-01T06:48:40.715411188Z",
+  "diagnostics": "Benchmark 1: '/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.krLTv7FUhu' '/tmp/fclones-performance.DIZ3Ws8o/buffer-256k' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/root/OneDriveBackup-2024-11-19/Archive'\n[2026-10-01 08:48:34.146] buffer-256k:  info: Started grouping\n[2026-10-01 08:48:34.376] buffer-256k:  info: Scanned 156319 file entries\n[2026-10-01 08:48:34.377] buffer-256k:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-01 08:48:34.402] buffer-256k:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-01 08:48:34.404] buffer-256k:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-01 08:48:34.528] buffer-256k:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-01 08:48:34.548] buffer-256k:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-01 08:48:35.747] buffer-256k:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-01 08:48:35.782] buffer-256k:  info: Started grouping\n[2026-10-01 08:48:36.004] buffer-256k:  info: Scanned 156319 file entries\n[2026-10-01 08:48:36.004] buffer-256k:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-01 08:48:36.030] buffer-256k:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-01 08:48:36.032] buffer-256k:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-01 08:48:36.160] buffer-256k:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-01 08:48:36.184] buffer-256k:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-01 08:48:37.439] buffer-256k:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-01 08:48:37.485] buffer-256k:  info: Started grouping\n[2026-10-01 08:48:37.705] buffer-256k:  info: Scanned 156319 file entries\n[2026-10-01 08:48:37.705] buffer-256k:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-01 08:48:37.731] buffer-256k:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-01 08:48:37.733] buffer-256k:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-01 08:48:37.855] buffer-256k:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-01 08:48:37.881] buffer-256k:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-01 08:48:39.128] buffer-256k:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-01 08:48:39.181] buffer-256k:  info: Started grouping\n[2026-10-01 08:48:39.402] buffer-256k:  info: Scanned 156319 file entries\n[2026-10-01 08:48:39.402] buffer-256k:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-01 08:48:39.428] buffer-256k:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-01 08:48:39.430] buffer-256k:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-01 08:48:39.557] buffer-256k:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-01 08:48:39.584] buffer-256k:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-01 08:48:40.682] buffer-256k:  info: Found 22040 (10.9 GB) redundant files\n  Time (mean ± σ):      1.645 s ±  0.096 s    [User: 2.880 s, System: 7.701 s]\n  Range (min … max):    1.534 s …  1.703 s    3 runs\n \n  Warning: Statistical outliers were detected. Consider re-running this benchmark on a quiet system without any interferences from other programs. It might help to use the '--warmup' or '--prepare' options.\n \n",
+  "resource_samples": [
+    {
+      "max_rss_kib": 46456,
+      "user_seconds": 3.04,
+      "system_seconds": 7.08,
+      "elapsed_seconds": 1.63
+    },
+    {
+      "max_rss_kib": 46140,
+      "user_seconds": 2.94,
+      "system_seconds": 7.43,
+      "elapsed_seconds": 1.70
+    },
+    {
+      "max_rss_kib": 42460,
+      "user_seconds": 2.88,
+      "system_seconds": 7.68,
+      "elapsed_seconds": 1.69
+    },
+    {
+      "max_rss_kib": 42652,
+      "user_seconds": 2.81,
+      "system_seconds": 7.98,
+      "elapsed_seconds": 1.53
+    }
+  ]
+}
