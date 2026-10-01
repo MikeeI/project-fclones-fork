@@ -4,6 +4,7 @@ use std::cell::Cell;
 use std::cmp::min;
 use std::io;
 use std::io::{BufRead, BufReader, Error, ErrorKind, Read, Write};
+use std::marker::PhantomData;
 use std::str::FromStr;
 
 use chrono::{DateTime, FixedOffset};
@@ -12,7 +13,7 @@ use fallible_iterator::FallibleIterator;
 use itertools::Itertools;
 use lazy_static::lazy_static;
 use regex::Regex;
-use serde::{Deserialize, Serialize};
+use serde::{Deserialize, Serialize, Serializer};
 
 use crate::arg;
 use crate::arg::Arg;
@@ -59,6 +60,34 @@ pub struct ReportHeader {
 struct SerializableReport<'a, G: Serialize> {
     header: &'a ReportHeader,
     groups: G,
+}
+
+// Own the iterator item so borrowed fields remain valid for owned and borrowed group inputs.
+struct SerializableFileGroup<G, P>(G, PhantomData<P>);
+
+impl<G, P> Serialize for SerializableFileGroup<G, P>
+where
+    G: AsRef<FileGroup<P>>,
+    P: AsRef<Path>,
+{
+    fn serialize<S: Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        #[derive(Serialize)]
+        #[serde(rename = "FileGroup")]
+        struct Fields<'a, F> {
+            file_len: FileLen,
+            file_hash: &'a FileHash,
+            files: F,
+        }
+
+        let group = self.0.as_ref();
+        let files = group.files.iter().map(|file| file.as_ref());
+        Fields {
+            file_len: group.file_len,
+            file_hash: &group.file_hash,
+            files: IteratorWrapper(Cell::new(Some(files))),
+        }
+        .serialize(serializer)
+    }
 }
 
 /// A structure for holding contents of the report after fully deserializing the report.
@@ -274,16 +303,9 @@ impl<W: Write> ReportWriter<W> {
         G: AsRef<FileGroup<P>>,
         P: AsRef<Path>,
     {
-        let groups = groups.into_iter().map(|g| FileGroup {
-            file_len: g.as_ref().file_len,
-            file_hash: g.as_ref().file_hash.clone(),
-            files: g
-                .as_ref()
-                .files
-                .iter()
-                .map(|f| f.as_ref().clone())
-                .collect(),
-        });
+        let groups = groups
+            .into_iter()
+            .map(|g| SerializableFileGroup::<_, P>(g, PhantomData));
         let report = SerializableReport {
             header,
             groups: IteratorWrapper(Cell::new(Some(groups))),
