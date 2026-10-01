@@ -1,0 +1,24 @@
+{
+  "results": [
+    {
+      "command": "'/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/root/OneDriveBackup-2024-11-19/Archive'",
+      "mean": 2.7365777139999996,
+      "stddev": 0.05104677974838288,
+      "median": 2.761282894,
+      "user": 5.616515666666667,
+      "system": 13.996715,
+      "min": 2.677878449,
+      "max": 2.770571799,
+      "times": [
+        2.761282894,
+        2.770571799,
+        2.677878449
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}
