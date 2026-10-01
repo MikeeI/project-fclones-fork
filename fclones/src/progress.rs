@@ -2,7 +2,7 @@
 
 use crate::FileLen;
 use console::style;
-use status_line::{Options, StatusLine};
+use status_line::StatusLine;
 use std::fmt::{Display, Formatter};
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
@@ -110,7 +110,7 @@ impl Display for Progress {
 
 /// Console-based progress bar that renders to standard error.
 pub struct ProgressBar {
-    status_line: StatusLine<Progress>,
+    status_line: Option<StatusLine<Progress>>,
 }
 
 impl ProgressBar {
@@ -121,7 +121,7 @@ impl ProgressBar {
             ..Default::default()
         };
         ProgressBar {
-            status_line: StatusLine::new(progress),
+            status_line: Some(StatusLine::new(progress)),
         }
     }
 
@@ -133,7 +133,7 @@ impl ProgressBar {
             ..Default::default()
         };
         ProgressBar {
-            status_line: StatusLine::new(progress),
+            status_line: Some(StatusLine::new(progress)),
         }
     }
 
@@ -147,7 +147,7 @@ impl ProgressBar {
             ..Default::default()
         };
         ProgressBar {
-            status_line: StatusLine::new(progress),
+            status_line: Some(StatusLine::new(progress)),
         }
     }
 
@@ -155,41 +155,44 @@ impl ProgressBar {
     /// This is useful when you need to disable progress bar, but you need to pass an instance
     /// of a `ProgressBar` to something that expects it.
     pub fn new_hidden() -> ProgressBar {
-        ProgressBar {
-            status_line: StatusLine::with_options(
-                Progress::default(),
-                Options {
-                    refresh_period: Default::default(),
-                    initially_visible: false,
-                    enable_ansi_escapes: false,
-                },
-            ),
-        }
+        // Hidden bars cannot become visible, so they need neither a renderer nor counters.
+        // A hidden StatusLine still spawns a worker; a zero refresh interval makes it spin.
+        ProgressBar { status_line: None }
     }
 
     pub fn is_visible(&self) -> bool {
-        self.status_line.is_visible()
+        self.status_line
+            .as_ref()
+            .map_or(false, StatusLine::is_visible)
     }
 
     pub fn eprintln<I: AsRef<str>>(&self, msg: I) {
-        let was_visible = self.status_line.is_visible();
-        self.status_line.set_visible(false);
-        eprintln!("{}", msg.as_ref());
-        self.status_line.set_visible(was_visible);
+        if let Some(status_line) = &self.status_line {
+            let was_visible = status_line.is_visible();
+            status_line.set_visible(false);
+            eprintln!("{}", msg.as_ref());
+            status_line.set_visible(was_visible);
+        } else {
+            eprintln!("{}", msg.as_ref());
+        }
     }
 
     pub fn tick(&self) {
-        self.status_line.value.fetch_add(1, Ordering::Relaxed);
+        self.inc(1);
     }
 
     pub fn finish_and_clear(&self) {
-        self.status_line.set_visible(false);
+        if let Some(status_line) = &self.status_line {
+            status_line.set_visible(false);
+        }
     }
 }
 
 impl ProgressTracker for ProgressBar {
     fn inc(&self, delta: u64) {
-        self.status_line.value.fetch_add(delta, Ordering::Relaxed);
+        if let Some(status_line) = &self.status_line {
+            status_line.value.fetch_add(delta, Ordering::Relaxed);
+        }
     }
 }
 
