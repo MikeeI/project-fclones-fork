@@ -5,7 +5,7 @@ use std::sync::{Arc, Mutex, Weak};
 use console::style;
 use nom::lib::std::fmt::Display;
 
-use crate::progress::{ProgressBar, ProgressTracker};
+use crate::progress::{NoProgressBar, ProgressBar, ProgressTracker};
 use chrono::Local;
 
 /// Determines the size of the task tracked by ProgressTracker.
@@ -145,6 +145,10 @@ impl StdLog {
 
 impl Log for StdLog {
     fn progress_bar(&self, msg: &str, len: ProgressBarLength) -> Arc<dyn ProgressTracker> {
+        if self.no_progress {
+            // Trait callers need neither the concrete bar API nor hidden-state checks per increment.
+            return Arc::new(NoProgressBar);
+        }
         match len {
             ProgressBarLength::Items(count) => self.progress_bar(msg, count),
             ProgressBarLength::Bytes(count) => self.bytes_progress_bar(msg, count),
