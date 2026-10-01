@@ -1,0 +1,79 @@
+{
+  "status": "complete",
+  "exit_code": 0,
+  "results": [
+    {
+      "command": "'/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.l00GjDqmXi' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/root/OneDriveBackup-2024-11-19/Archive'",
+      "mean": 2.1989097753333335,
+      "stddev": 0.06836325693827826,
+      "median": 2.216412572,
+      "user": 2.841863,
+      "system": 10.966693666666666,
+      "min": 2.123496739,
+      "max": 2.256820015,
+      "times": [
+        2.123496739,
+        2.256820015,
+        2.216412572
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "started_at": "2026-10-01T08:50:14.973971997Z",
+    "dataset": "/root/OneDriveBackup-2024-11-19/Archive",
+    "command": "'/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.l00GjDqmXi' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/root/OneDriveBackup-2024-11-19/Archive'",
+    "checkout_revision": "7b0b70dc376b079988144964cdcc571d65c00fa7",
+    "binary_sha256": "3824828ba1c6e1207484cf41b8e5522e6ba60b896627f4a60b32e11f364c2d26",
+    "hash_fn": "metro",
+    "hash_cache_home": "",
+    "page_cache": "no host-wide flush; warmup is not a residency guarantee; application policy unchanged",
+    "devices": [
+      {
+        "path": "/root/OneDriveBackup-2024-11-19/Archive",
+        "device": "/dev/mapper/vg0-root",
+        "kind": "SSD",
+        "file_system": "ext4",
+        "configured_random_threads": 8,
+        "configured_sequential_threads": 8,
+        "resolved_random_threads": 8,
+        "resolved_sequential_threads": 8
+      }
+    ],
+    "warmup_runs": 1,
+    "requested_runs": 3,
+    "time_limit_seconds": 29
+  },
+  "finished_at": "2026-10-01T08:50:23.738641321Z",
+  "diagnostics": "Benchmark 1: '/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.l00GjDqmXi' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/root/OneDriveBackup-2024-11-19/Archive'\n[2026-10-01 10:50:15.010] fclones:  info: Started grouping\n[2026-10-01 10:50:15.225] fclones:  info: Scanned 156319 file entries\n[2026-10-01 10:50:15.225] fclones:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-01 10:50:15.250] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-01 10:50:15.251] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-01 10:50:15.378] fclones:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-01 10:50:15.420] fclones:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-01 10:50:17.098] fclones:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-01 10:50:17.141] fclones:  info: Started grouping\n[2026-10-01 10:50:17.358] fclones:  info: Scanned 156319 file entries\n[2026-10-01 10:50:17.358] fclones:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-01 10:50:17.384] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-01 10:50:17.385] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-01 10:50:17.515] fclones:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-01 10:50:17.557] fclones:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-01 10:50:19.223] fclones:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-01 10:50:19.266] fclones:  info: Started grouping\n[2026-10-01 10:50:19.484] fclones:  info: Scanned 156319 file entries\n[2026-10-01 10:50:19.484] fclones:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-01 10:50:19.509] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-01 10:50:19.511] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-01 10:50:19.642] fclones:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-01 10:50:19.689] fclones:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-01 10:50:21.476] fclones:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-01 10:50:21.523] fclones:  info: Started grouping\n[2026-10-01 10:50:21.740] fclones:  info: Scanned 156319 file entries\n[2026-10-01 10:50:21.740] fclones:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-01 10:50:21.767] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-01 10:50:21.768] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-01 10:50:21.891] fclones:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-01 10:50:21.938] fclones:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-01 10:50:23.706] fclones:  info: Found 22040 (10.9 GB) redundant files\n  Time (mean ± σ):      2.199 s ±  0.068 s    [User: 2.842 s, System: 10.967 s]\n  Range (min … max):    2.123 s …  2.257 s    3 runs\n \n",
+  "resource_samples": [
+    {
+      "max_rss_kib": 43192,
+      "user_seconds": 2.84,
+      "system_seconds": 10.55,
+      "elapsed_seconds": 2.13
+    },
+    {
+      "max_rss_kib": 42868,
+      "user_seconds": 2.79,
+      "system_seconds": 10.55,
+      "elapsed_seconds": 2.12
+    },
+    {
+      "max_rss_kib": 42920,
+      "user_seconds": 2.88,
+      "system_seconds": 11.26,
+      "elapsed_seconds": 2.25
+    },
+    {
+      "max_rss_kib": 42172,
+      "user_seconds": 2.84,
+      "system_seconds": 11.07,
+      "elapsed_seconds": 2.21
+    }
+  ]
+}

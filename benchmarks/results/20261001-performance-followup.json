@@ -23,6 +23,8 @@
     "benchmark_owner": "benchmark.sh",
     "warmup_runs_per_record": 1,
     "measured_runs_per_record": 3,
+    "cache_residency": "Warmup does not guarantee residency; application drop-behind and host memory pressure may reclaim pages.",
+    "historical_page_cache_labels": "Earlier records labeled warm describe warmup, not measured residency.",
     "mount_isolation": "private namespace masks /mnt only"
   },
   "records": [
@@ -179,6 +181,13 @@
       "binary_sha256": "3824828ba1c6e1207484cf41b8e5522e6ba60b896627f4a60b32e11f364c2d26",
       "median_seconds": 2.152868079,
       "stddev_seconds": 0.08821631482030538
+    },
+    {
+      "case": "benchmark_cache_metadata_contract",
+      "record": "benchmarks/results/20261001T085014.976773676-7b0b70d.json",
+      "binary_sha256": "3824828ba1c6e1207484cf41b8e5522e6ba60b896627f4a60b32e11f364c2d26",
+      "median_seconds": 2.216412572,
+      "stddev_seconds": 0.06836325693827826
     }
   ],
   "decisions": {

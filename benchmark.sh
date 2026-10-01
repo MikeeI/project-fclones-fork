@@ -98,6 +98,7 @@ command=$(jq -rn --args '[$ARGS.positional[]] | @sh' -- \
     /usr/bin/time -f '%M %U %S %e' -a -o "$usage" "${scan[@]}")
 
 # Publish a started record before execution so even a hard kill leaves evidence.
+# The application may drop file pages under low free memory, so warmup alone cannot prove cache residency.
 jq -n --arg started_at "$started_at" --arg dataset "$dataset" --arg command "$command" \
     --arg revision "$revision" --arg binary_hash "$binary_hash" \
     --argjson warmup_runs "$WARMUP_RUNS" --argjson measured_runs "$MEASURED_RUNS" \
@@ -106,7 +107,8 @@ jq -n --arg started_at "$started_at" --arg dataset "$dataset" --arg command "$co
     '{status: "running", exit_code: null, results: [], metadata: {
         started_at: $started_at, dataset: $dataset, command: $command,
         checkout_revision: $revision, binary_sha256: $binary_hash,
-        hash_fn: $hash_fn, hash_cache_home: $cache_home, page_cache: "warm; no global eviction",
+        hash_fn: $hash_fn, hash_cache_home: $cache_home,
+        page_cache: "no host-wide flush; warmup is not a residency guarantee; application policy unchanged",
         devices: null, warmup_runs: $warmup_runs,
         requested_runs: $measured_runs, time_limit_seconds: $time_limit
     }}' >"$result"
