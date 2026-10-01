@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-01",
+  "scope": "Six reviewed SSD measures; no BTreeMap or aggregator changes.",
+  "environment": {
+    "rust_version": "1.74.1",
+    "logical_cpus": 32,
+    "storage": "Two nonrotational NVMe devices, RAID1, LVM, ext4",
+    "detected_device": "/dev/mapper/vg0-root",
+    "detected_kind": "SSD"
+  },
+  "protocol": {
+    "warmup_runs": 1,
+    "measured_runs": 3,
+    "measurement_limit_seconds": 29,
+    "page_cache": "One warmup; no host-wide flush; residency was not measured and application eviction remained active.",
+    "isolation": "Private mount namespace masks /mnt; host mounts are unchanged.",
+    "comparison_report_sink": "Hyperfine-discarded stdout; identical within the comparison matrix.",
+    "final_runner_report_sink": "/dev/null, with child diagnostics retained using hyperfine --show-output.",
+    "resource_samples": "Warmup first, followed by three measured child processes.",
+    "limits": "Three-run screening on this host, not a universal SSD optimum or controlled cold/hot-I/O benchmark.",
+    "legacy_cache_labels": "Raw records say warm; this is not evidence that all file pages remained resident."
+  },
+  "real_dataset": {
+    "path": "/root/OneDriveBackup-2024-11-19/Archive",
+    "modified": false,
+    "persistent_hash_cache_enabled": false,
+    "binary_sha256": "20ea3798eb0246d116ee3aea646853afd56e4526908af7eb248ab745f9e588ba",
+    "comparisons": [
+      {"random": 8, "sequential": 8, "hash": "metro", "median_seconds": 1.214964363, "record": "20261001T055437.614293363-b9474a7.json"},
+      {"random": 4, "sequential": 8, "hash": "metro", "median_seconds": 1.436614954, "record": "20261001T055608.983185050-b9474a7.json"},
+      {"random": 16, "sequential": 8, "hash": "metro", "median_seconds": 1.334724964, "record": "20261001T055614.605637071-b9474a7.json"},
+      {"random": 8, "sequential": 4, "hash": "metro", "median_seconds": 1.778953600, "record": "20261001T055620.092970149-b9474a7.json"},
+      {"random": 8, "sequential": 16, "hash": "metro", "median_seconds": 1.401554980, "record": "20261001T055627.224462856-b9474a7.json"},
+      {"random": 8, "sequential": 8, "hash": "xxhash", "median_seconds": 1.449499789, "record": "20261001T055632.892408378-b9474a7.json"},
+      {"random": 8, "sequential": 8, "hash": "blake3", "median_seconds": 1.728755939, "record": "20261001T055638.783917594-b9474a7.json"},
+      {"random": 128, "sequential": 128, "hash": "metro", "median_seconds": 1.538524505, "record": "20261001T055832.954321174-b9474a7.json"},
+      {"random": 8, "sequential": 8, "hash": "metro", "median_seconds": 1.147595164, "record": "20261001T055840.100154352-b9474a7.json"}
+    ],
+    "retained_benchmark_preset": {"main": 8, "random": 8, "sequential": 8, "hash": "metro"},
+    "application_defaults_changed": false
+  },
+  "isolated_corpus": {
+    "command": "target/release/gen-test-files --count 2000 --max-group-size 4 --size 524288 --seed 42 /tmp/fclones-ssd-OkGpynlP/data",
+    "files": 3969,
+    "bytes": 2080899072,
+    "cache_disabled_before_seconds": 0.101600414,
+    "cache_enabled_seconds": 0.045286205,
+    "cache_disabled_after_seconds": 0.102227907,
+    "records": ["20261001T055844.772482916-b9474a7.json", "20261001T055845.252638022-b9474a7.json", "20261001T055845.597615847-b9474a7.json"],
+    "separate_fill_record": "20261001T060701.748445213-b9474a7.json",
+    "initial_fill_elapsed_seconds_precision_0_01": 0.14,
+    "normalized_groups_sha256": "a5be9d364f06dee122e7f519b04df78cbed80a3acdbfe3f7e6e748d6c9f3adfe",
+    "same_groups_verified_for": ["metro", "xxhash", "blake3", "metro with hash cache", "metro with sequential pool 4"],
+    "normalization": "jq -Sc '[.groups[] | {file_len,files:(.files|sort)}] | sort_by(.file_len,.files)' | sha256sum",
+    "scope": "Cache gain is synthetic with one warmup and uncontrolled page residency; real Archive hash caching remains disabled."
+  },
+  "memory_status": {
+    "record": "20261001-memory-refresh.json",
+    "finding": "ISSUE-005",
+    "median_constructor_seconds_per_10000": 0.479419420,
+    "median_fresh_refresh_seconds_per_10000": 0.701494248,
+    "median_reused_refresh_seconds_per_10000": 0.216552721,
+    "production_patch_applied": false,
+    "blocker": "sysinfo 0.29.10 has no public memory reset or refresh-success status; TLS reuse retains stale fields on silent or partial refresh failures."
+  },
+  "verification": {
+    "rust_format": "passed",
+    "clippy_repository_targets_and_examples": "passed with warnings and rust-2018-idioms denied",
+    "release_workspace_and_examples": "passed",
+    "existing_hash_tests": "7 passed",
+    "shellcheck": "passed",
+    "json_stdout_protocol": "passed",
+    "seeded_corpus_repeatability": "diff -r passed for two independently generated small corpora",
+    "failure_diagnostics_record": "20261001T061035.694081451-b9474a7.json",
+    "extra_all_targets_lint": "Blocked by pre-existing elided lifetime in fclones/src/walk.rs:694; no unrelated edit applied."
+  }
+}

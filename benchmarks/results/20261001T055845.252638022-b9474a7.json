@@ -1,0 +1,75 @@
+{
+  "status": "complete",
+  "exit_code": 0,
+  "results": [
+    {
+      "command": "'/usr/bin/time' '-f' '%M %U %S' '-a' '-o' '/tmp/tmp.542dKlND6q' 'env' 'XDG_CACHE_HOME=/tmp/fclones-ssd-OkGpynlP/cache' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/tmp/fclones-ssd-OkGpynlP/data' '--cache'",
+      "mean": 0.04625711966666667,
+      "stddev": 0.0017677010846538323,
+      "median": 0.045286205,
+      "user": 0.13287233333333334,
+      "system": 0.077417,
+      "min": 0.045187662,
+      "max": 0.048297492000000004,
+      "times": [
+        0.048297492000000004,
+        0.045187662,
+        0.045286205
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "started_at": "2026-10-01T05:58:45.249936349Z",
+    "dataset": "/tmp/fclones-ssd-OkGpynlP/data",
+    "command": "'/usr/bin/time' '-f' '%M %U %S' '-a' '-o' '/tmp/tmp.542dKlND6q' 'env' 'XDG_CACHE_HOME=/tmp/fclones-ssd-OkGpynlP/cache' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/tmp/fclones-ssd-OkGpynlP/data' '--cache'",
+    "checkout_revision": "b9474a7d17194f9a5bb357d57bedcfe7f4c67747",
+    "binary_sha256": "20ea3798eb0246d116ee3aea646853afd56e4526908af7eb248ab745f9e588ba",
+    "hash_fn": "metro",
+    "hash_cache_home": "/tmp/fclones-ssd-OkGpynlP/cache",
+    "page_cache": "warm; no global eviction",
+    "devices": [
+      {
+        "configured_random_threads": 8,
+        "configured_sequential_threads": 8,
+        "device": "/dev/mapper/vg0-root",
+        "file_system": "ext4",
+        "kind": "SSD",
+        "path": "/tmp/fclones-ssd-OkGpynlP/data",
+        "resolved_random_threads": 8,
+        "resolved_sequential_threads": 8
+      }
+    ],
+    "warmup_runs": 1,
+    "requested_runs": 3,
+    "time_limit_seconds": 29
+  },
+  "finished_at": "2026-10-01T05:58:45.559007490Z",
+  "diagnostics": "Benchmark 1: '/usr/bin/time' '-f' '%M %U %S' '-a' '-o' '/tmp/tmp.542dKlND6q' 'env' 'XDG_CACHE_HOME=/tmp/fclones-ssd-OkGpynlP/cache' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/tmp/fclones-ssd-OkGpynlP/data' '--cache'\n  Time (mean ± σ):      46.3 ms ±   1.8 ms    [User: 132.9 ms, System: 77.4 ms]\n  Range (min … max):    45.2 ms …  48.3 ms    3 runs\n \n  Warning: The first benchmarking run for this command was significantly slower than the rest (48.3 ms). This could be caused by (filesystem) caches that were not filled until after the first run. You are already using the '--warmup' option which helps to fill these caches before the actual benchmark. You can either try to increase the warmup count further or re-run this benchmark on a quiet system in case it was a random outlier. Alternatively, consider using the '--prepare' option to clear the caches before each timing run.\n \n",
+  "resource_samples": [
+    {
+      "max_rss_kib": 44544,
+      "user_seconds": 0.43,
+      "system_seconds": 0.60
+    },
+    {
+      "max_rss_kib": 33792,
+      "user_seconds": 0.12,
+      "system_seconds": 0.08
+    },
+    {
+      "max_rss_kib": 32000,
+      "user_seconds": 0.14,
+      "system_seconds": 0.06
+    },
+    {
+      "max_rss_kib": 32256,
+      "user_seconds": 0.13,
+      "system_seconds": 0.07
+    }
+  ]
+}

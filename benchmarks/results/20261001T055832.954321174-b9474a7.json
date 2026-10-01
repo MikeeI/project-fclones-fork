@@ -1,0 +1,75 @@
+{
+  "status": "complete",
+  "exit_code": 0,
+  "results": [
+    {
+      "command": "'/usr/bin/time' '-f' '%M %U %S' '-a' '-o' '/tmp/tmp.AqQs9juzht' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/root/OneDriveBackup-2024-11-19/Archive'",
+      "mean": 1.5880078203333332,
+      "stddev": 0.1079858846742756,
+      "median": 1.538524505,
+      "user": 19.831886333333333,
+      "system": 17.172557666666666,
+      "min": 1.5136308500000002,
+      "max": 1.711868106,
+      "times": [
+        1.5136308500000002,
+        1.711868106,
+        1.538524505
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "started_at": "2026-10-01T05:58:32.951624099Z",
+    "dataset": "/root/OneDriveBackup-2024-11-19/Archive",
+    "command": "'/usr/bin/time' '-f' '%M %U %S' '-a' '-o' '/tmp/tmp.AqQs9juzht' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/root/OneDriveBackup-2024-11-19/Archive'",
+    "checkout_revision": "b9474a7d17194f9a5bb357d57bedcfe7f4c67747",
+    "binary_sha256": "20ea3798eb0246d116ee3aea646853afd56e4526908af7eb248ab745f9e588ba",
+    "hash_fn": "metro",
+    "hash_cache_home": "",
+    "page_cache": "warm; no global eviction",
+    "devices": [
+      {
+        "configured_random_threads": 128,
+        "configured_sequential_threads": 128,
+        "device": "/dev/mapper/vg0-root",
+        "file_system": "ext4",
+        "kind": "SSD",
+        "path": "/root/OneDriveBackup-2024-11-19/Archive",
+        "resolved_random_threads": 128,
+        "resolved_sequential_threads": 128
+      }
+    ],
+    "warmup_runs": 1,
+    "requested_runs": 3,
+    "time_limit_seconds": 29
+  },
+  "finished_at": "2026-10-01T05:58:40.063649531Z",
+  "diagnostics": "Benchmark 1: '/usr/bin/time' '-f' '%M %U %S' '-a' '-o' '/tmp/tmp.AqQs9juzht' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/root/OneDriveBackup-2024-11-19/Archive'\n  Time (mean ± σ):      1.588 s ±  0.108 s    [User: 19.832 s, System: 17.173 s]\n  Range (min … max):    1.514 s …  1.712 s    3 runs\n \n",
+  "resource_samples": [
+    {
+      "max_rss_kib": 66264,
+      "user_seconds": 24.76,
+      "system_seconds": 27.28
+    },
+    {
+      "max_rss_kib": 67956,
+      "user_seconds": 18.41,
+      "system_seconds": 16.64
+    },
+    {
+      "max_rss_kib": 68044,
+      "user_seconds": 22.88,
+      "system_seconds": 17.78
+    },
+    {
+      "max_rss_kib": 66400,
+      "user_seconds": 18.19,
+      "system_seconds": 17.07
+    }
+  ]
+}

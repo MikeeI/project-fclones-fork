@@ -1,0 +1,33 @@
+{
+  "status": "failed",
+  "exit_code": 2,
+  "results": [],
+  "metadata": {
+    "started_at": "2026-10-01T06:09:49.356938001Z",
+    "dataset": "/tmp/fclones-ssd-OkGpynlP/data",
+    "command": "'/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.MaJxVB2u1d' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'nonexistent:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/tmp/fclones-ssd-OkGpynlP/data'",
+    "checkout_revision": "b9474a7d17194f9a5bb357d57bedcfe7f4c67747",
+    "binary_sha256": "20ea3798eb0246d116ee3aea646853afd56e4526908af7eb248ab745f9e588ba",
+    "hash_fn": "metro",
+    "hash_cache_home": "",
+    "page_cache": "warm; no global eviction",
+    "devices": [
+      {
+        "configured_random_threads": 128,
+        "configured_sequential_threads": 128,
+        "device": "/dev/mapper/vg0-root",
+        "file_system": "ext4",
+        "kind": "SSD",
+        "path": "/tmp/fclones-ssd-OkGpynlP/data",
+        "resolved_random_threads": 128,
+        "resolved_sequential_threads": 128
+      }
+    ],
+    "warmup_runs": 1,
+    "requested_runs": 3,
+    "time_limit_seconds": 29
+  },
+  "finished_at": "2026-10-01T06:09:49.407099415Z",
+  "diagnostics": "error: the argument '--show-output' cannot be used with '--style <TYPE>'\n\nUsage: hyperfine --shell <SHELL> --warmup <NUM> --runs <NUM> --show-output --export-json <FILE> <command>...\n\nFor more information, try '--help'.\n",
+  "resource_samples": []
+}

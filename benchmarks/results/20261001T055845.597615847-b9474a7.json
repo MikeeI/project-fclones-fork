@@ -1,0 +1,75 @@
+{
+  "status": "complete",
+  "exit_code": 0,
+  "results": [
+    {
+      "command": "'/usr/bin/time' '-f' '%M %U %S' '-a' '-o' '/tmp/tmp.qKOMxQgiia' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/tmp/fclones-ssd-OkGpynlP/data'",
+      "mean": 0.10212548033333334,
+      "stddev": 0.0005722586770834825,
+      "median": 0.102227907,
+      "user": 0.294114,
+      "system": 0.5452103333333334,
+      "min": 0.101508925,
+      "max": 0.102639609,
+      "times": [
+        0.101508925,
+        0.102639609,
+        0.102227907
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "started_at": "2026-10-01T05:58:45.592697798Z",
+    "dataset": "/tmp/fclones-ssd-OkGpynlP/data",
+    "command": "'/usr/bin/time' '-f' '%M %U %S' '-a' '-o' '/tmp/tmp.qKOMxQgiia' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/tmp/fclones-ssd-OkGpynlP/data'",
+    "checkout_revision": "b9474a7d17194f9a5bb357d57bedcfe7f4c67747",
+    "binary_sha256": "20ea3798eb0246d116ee3aea646853afd56e4526908af7eb248ab745f9e588ba",
+    "hash_fn": "metro",
+    "hash_cache_home": "",
+    "page_cache": "warm; no global eviction",
+    "devices": [
+      {
+        "configured_random_threads": 8,
+        "configured_sequential_threads": 8,
+        "device": "/dev/mapper/vg0-root",
+        "file_system": "ext4",
+        "kind": "SSD",
+        "path": "/tmp/fclones-ssd-OkGpynlP/data",
+        "resolved_random_threads": 8,
+        "resolved_sequential_threads": 8
+      }
+    ],
+    "warmup_runs": 1,
+    "requested_runs": 3,
+    "time_limit_seconds": 29
+  },
+  "finished_at": "2026-10-01T05:58:46.041690048Z",
+  "diagnostics": "Benchmark 1: '/usr/bin/time' '-f' '%M %U %S' '-a' '-o' '/tmp/tmp.qKOMxQgiia' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/tmp/fclones-ssd-OkGpynlP/data'\n  Time (mean ± σ):     102.1 ms ±   0.6 ms    [User: 294.1 ms, System: 545.2 ms]\n  Range (min … max):   101.5 ms … 102.6 ms    3 runs\n \n",
+  "resource_samples": [
+    {
+      "max_rss_kib": 7936,
+      "user_seconds": 0.29,
+      "system_seconds": 0.56
+    },
+    {
+      "max_rss_kib": 8704,
+      "user_seconds": 0.28,
+      "system_seconds": 0.55
+    },
+    {
+      "max_rss_kib": 7936,
+      "user_seconds": 0.31,
+      "system_seconds": 0.52
+    },
+    {
+      "max_rss_kib": 8192,
+      "user_seconds": 0.28,
+      "system_seconds": 0.55
+    }
+  ]
+}

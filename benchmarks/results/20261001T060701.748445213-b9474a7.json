@@ -1,0 +1,79 @@
+{
+  "status": "complete",
+  "exit_code": 0,
+  "results": [
+    {
+      "command": "'/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.6Ccn1D7Ujt' 'env' 'XDG_CACHE_HOME=/tmp/fclones-ssd-OkGpynlP/cache-fill' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/tmp/fclones-ssd-OkGpynlP/data' '--cache'",
+      "mean": 0.04665219833333334,
+      "stddev": 0.001624101962824482,
+      "median": 0.045833058,
+      "user": 0.130346,
+      "system": 0.07647733333333333,
+      "min": 0.045600788,
+      "max": 0.048522749000000004,
+      "times": [
+        0.048522749000000004,
+        0.045600788,
+        0.045833058
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "started_at": "2026-10-01T06:07:01.745275402Z",
+    "dataset": "/tmp/fclones-ssd-OkGpynlP/data",
+    "command": "'/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.6Ccn1D7Ujt' 'env' 'XDG_CACHE_HOME=/tmp/fclones-ssd-OkGpynlP/cache-fill' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/tmp/fclones-ssd-OkGpynlP/data' '--cache'",
+    "checkout_revision": "b9474a7d17194f9a5bb357d57bedcfe7f4c67747",
+    "binary_sha256": "20ea3798eb0246d116ee3aea646853afd56e4526908af7eb248ab745f9e588ba",
+    "hash_fn": "metro",
+    "hash_cache_home": "/tmp/fclones-ssd-OkGpynlP/cache-fill",
+    "page_cache": "warm; no global eviction",
+    "devices": [
+      {
+        "configured_random_threads": 8,
+        "configured_sequential_threads": 8,
+        "device": "/dev/mapper/vg0-root",
+        "file_system": "ext4",
+        "kind": "SSD",
+        "path": "/tmp/fclones-ssd-OkGpynlP/data",
+        "resolved_random_threads": 8,
+        "resolved_sequential_threads": 8
+      }
+    ],
+    "warmup_runs": 1,
+    "requested_runs": 3,
+    "time_limit_seconds": 29
+  },
+  "finished_at": "2026-10-01T06:07:02.065775854Z",
+  "diagnostics": "Benchmark 1: '/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.6Ccn1D7Ujt' 'env' 'XDG_CACHE_HOME=/tmp/fclones-ssd-OkGpynlP/cache-fill' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/tmp/fclones-ssd-OkGpynlP/data' '--cache'\n  Time (mean ± σ):      46.7 ms ±   1.6 ms    [User: 130.3 ms, System: 76.5 ms]\n  Range (min … max):    45.6 ms …  48.5 ms    3 runs\n \n",
+  "resource_samples": [
+    {
+      "max_rss_kib": 44800,
+      "user_seconds": 0.43,
+      "system_seconds": 0.64,
+      "elapsed_seconds": 0.14
+    },
+    {
+      "max_rss_kib": 33280,
+      "user_seconds": 0.12,
+      "system_seconds": 0.08,
+      "elapsed_seconds": 0.04
+    },
+    {
+      "max_rss_kib": 32768,
+      "user_seconds": 0.13,
+      "system_seconds": 0.07,
+      "elapsed_seconds": 0.04
+    },
+    {
+      "max_rss_kib": 32768,
+      "user_seconds": 0.12,
+      "system_seconds": 0.07,
+      "elapsed_seconds": 0.04
+    }
+  ]
+}

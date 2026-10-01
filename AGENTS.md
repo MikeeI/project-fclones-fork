@@ -195,12 +195,17 @@ These are upstream-owned commands, not new fork-specific quality wrappers.
 ## Performance Benchmark
 
 - Use `/root/OneDriveBackup-2024-11-19/Archive` as the fixed real-directory benchmark dataset.
-- Build the release binary before comparing implementations: `cargo build --release --locked -p fclones`.
+- Build the release CLI and inspector before comparisons: `cargo build --release --locked -p fclones --examples --bin fclones`.
 - Run the benchmark with `bash benchmark.sh /root/OneDriveBackup-2024-11-19/Archive`.
 - Keep the dataset and scan options unchanged between before-and-after measurements.
 - `benchmark.sh` performs one warmup and three measured scans within an approximately 30-second budget.
 - Every started benchmark must automatically save a separate JSON record under `benchmarks/results/`.
-- Preserve individual timings, the command, checkout revision, binary hash, exit status, and failure diagnostics.
+- Preserve timings, command, revision, binary hash, detected device/pools, resource samples, exit status, and diagnostics.
 - Keep failed or interrupted runs as research evidence, but never treat them as completed performance measurements.
-- The benchmark only runs `group`; never modify the real dataset or enable persistent file-hash caching.
+- Real-directory benchmarks only run `group`; never modify the real dataset or enable its persistent hash cache.
+- Restrict hash-cache experiments to generated corpora and separate caches under `/tmp/fclones-ssd-*`.
+- Use `BENCHMARK_DEVICE_POOL=native` to compare per-device defaults without overriding them.
+- Keep `BENCHMARK_MAIN_THREADS` constant while comparing random/sequential pool sizes or hash algorithms.
+- `benchmark.sh --json DIRECTORY` emits the complete result on stdout; diagnostics remain on stderr.
+- Resource samples contain the warmup first, followed by the three measured child processes.
 - Keep benchmark tooling, results, and this fork-only context out of upstream contribution diffs.
