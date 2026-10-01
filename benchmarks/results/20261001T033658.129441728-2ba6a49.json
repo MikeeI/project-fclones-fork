@@ -1,0 +1,38 @@
+{
+  "status": "complete",
+  "exit_code": 0,
+  "results": [
+    {
+      "command": "'/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/root/OneDriveBackup-2024-11-19/Archive'",
+      "mean": 2.6759305616666667,
+      "stddev": 0.050596003131150195,
+      "median": 2.649543713,
+      "user": 5.506080666666667,
+      "system": 13.838418333333331,
+      "min": 2.643982473,
+      "max": 2.734265499,
+      "times": [
+        2.649543713,
+        2.734265499,
+        2.643982473
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "started_at": "2026-10-01T03:36:58.127211036Z",
+    "dataset": "/root/OneDriveBackup-2024-11-19/Archive",
+    "command": "'/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/root/OneDriveBackup-2024-11-19/Archive'",
+    "checkout_revision": "2ba6a49275732b6bf17380c8e8859582ea999a67",
+    "binary_sha256": "17cb26f4d125abb014be537625e6879c624cc7acf59e8faab17a1c0e0c6a734c",
+    "warmup_runs": 1,
+    "requested_runs": 3,
+    "time_limit_seconds": 29
+  },
+  "finished_at": "2026-10-01T03:37:08.771848614Z",
+  "diagnostics": "Benchmark 1: '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/root/OneDriveBackup-2024-11-19/Archive'\n  Time (mean ± σ):      2.676 s ±  0.051 s    [User: 5.506 s, System: 13.838 s]\n  Range (min … max):    2.644 s …  2.734 s    3 runs\n \n  Warning: Statistical outliers were detected. Consider re-running this benchmark on a quiet system without any interferences from other programs. It might help to use the '--warmup' or '--prepare' options.\n \n"
+}

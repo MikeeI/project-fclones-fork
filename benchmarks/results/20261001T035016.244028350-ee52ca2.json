@@ -1,0 +1,38 @@
+{
+  "status": "complete",
+  "exit_code": 0,
+  "results": [
+    {
+      "command": "'/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/root/OneDriveBackup-2024-11-19/Archive'",
+      "mean": 2.707691687666667,
+      "stddev": 0.03790191262768559,
+      "median": 2.725006814,
+      "user": 5.673460666666666,
+      "system": 13.886236333333331,
+      "min": 2.664224718,
+      "max": 2.7338435309999998,
+      "times": [
+        2.725006814,
+        2.7338435309999998,
+        2.664224718
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "started_at": "2026-10-01T03:50:16.241352304Z",
+    "dataset": "/root/OneDriveBackup-2024-11-19/Archive",
+    "command": "'/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/root/OneDriveBackup-2024-11-19/Archive'",
+    "checkout_revision": "ee52ca2a690c2fa086bb94feb9e148bc3805ac76",
+    "binary_sha256": "187f14cb866d5fb8c7dcb5fceaaf6cf6f29aebc71b3488977d530ade7c7206ce",
+    "warmup_runs": 1,
+    "requested_runs": 3,
+    "time_limit_seconds": 29
+  },
+  "finished_at": "2026-10-01T03:50:27.035886964Z",
+  "diagnostics": "Benchmark 1: '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '/root/OneDriveBackup-2024-11-19/Archive'\n  Time (mean ± σ):      2.708 s ±  0.038 s    [User: 5.673 s, System: 13.886 s]\n  Range (min … max):    2.664 s …  2.734 s    3 runs\n \n"
+}
