@@ -4,6 +4,7 @@ use std::cell::RefCell;
 use std::cmp::{max, min, Reverse};
 use std::collections::BTreeMap;
 use std::collections::HashMap;
+use std::collections::HashSet;
 use std::env::{args_os, current_dir};
 use std::ffi::{OsStr, OsString};
 use std::fmt::Debug;
@@ -353,7 +354,10 @@ impl<F: AsRef<Path> + AsRef<FileId>> FileGroup<F> {
     /// the group can be split in later stages and the number of replicas in the group may drop.
     pub fn matches(&self, filter: &FileGroupFilter) -> bool {
         match filter.replication {
-            Replication::Overreplicated(rf) => self.subgroup_count(filter) > rf,
+            Replication::Overreplicated(rf) => {
+                self.files.len() > rf
+                    && self.subgroup_count_up_to(filter, rf.saturating_add(1)) > rf
+            }
             Replication::Underreplicated(_) => true,
         }
     }
@@ -362,10 +366,9 @@ impl<F: AsRef<Path> + AsRef<FileId>> FileGroup<F> {
     /// The number of replicas in the group must be appropriate for the condition
     /// specified in `filter.replication`.
     pub fn matches_strictly(&self, filter: &FileGroupFilter) -> bool {
-        let count = self.subgroup_count(filter);
         match filter.replication {
-            Replication::Overreplicated(rf) => count > rf,
-            Replication::Underreplicated(rf) => count < rf,
+            Replication::Overreplicated(_) => self.matches(filter),
+            Replication::Underreplicated(rf) => self.subgroup_count_up_to(filter, rf) < rf,
         }
     }
 
@@ -429,6 +432,28 @@ impl<F: AsRef<Path> + AsRef<FileId>> FileGroup<F> {
     /// The number of subgroups of paths with distinct root prefix.
     fn subgroup_count(&self, filter: &FileGroupFilter) -> usize {
         FileSubGroup::group(&self.files, &filter.root_paths, filter.group_by_id).len()
+    }
+
+    /// Counts only enough replicas to decide a boolean filter.
+    fn subgroup_count_up_to(&self, filter: &FileGroupFilter, limit: usize) -> usize {
+        // Root precedence and exact statistics retain the existing grouping path.
+        if !filter.root_paths.is_empty() {
+            return self.subgroup_count(filter);
+        }
+        if !filter.group_by_id {
+            return self.files.len().min(limit);
+        }
+        if limit == 0 {
+            return 0;
+        }
+        let mut ids = HashSet::new();
+        for file in &self.files {
+            ids.insert(FileId::of(file));
+            if ids.len() == limit {
+                break;
+            }
+        }
+        ids.len()
     }
 
     /// Sorts the files by their path names.
