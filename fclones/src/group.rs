@@ -1301,12 +1301,21 @@ pub fn write_report(
     let total_count = file_count(groups.iter());
     let total_size = total_size(groups.iter());
 
+    // Argument-backed roots are reusable; input_paths may consume stdin otherwise.
+    let filter = (!config.stdin).then(|| config.group_filter());
+
     let (redundant_count, redundant_size) = groups.iter().fold((0, FileLen(0)), |res, g| {
-        let count = g.redundant_count(&config.group_filter());
+        let count = match &filter {
+            Some(filter) => g.redundant_count(filter),
+            None => g.redundant_count(&config.group_filter()),
+        };
         (res.0 + count, res.1 + g.file_len * count as u64)
     });
     let (missing_count, missing_size) = groups.iter().fold((0, FileLen(0)), |res, g| {
-        let count = g.missing_count(&config.group_filter());
+        let count = match &filter {
+            Some(filter) => g.missing_count(filter),
+            None => g.missing_count(&config.group_filter()),
+        };
         (res.0 + count, res.1 + g.file_len * count as u64)
     });
 
