@@ -172,6 +172,13 @@
       "binary_sha256": "a218ab0b227d0c5b974c2ea15d42ddd80aafa8db5fa89726031788b240ade93c",
       "median_seconds": 1.987897771,
       "stddev_seconds": 0.009444262087134917
+    },
+    {
+      "case": "benchmark_json_contract",
+      "record": "benchmarks/results/20261001T083335.839995568-badd233.json",
+      "binary_sha256": "3824828ba1c6e1207484cf41b8e5522e6ba60b896627f4a60b32e11f364c2d26",
+      "median_seconds": 2.152868079,
+      "stddev_seconds": 0.08821631482030538
     }
   ],
   "decisions": {
@@ -245,6 +252,8 @@
       "new_permanent_tests": 0
     },
     "release_cli_and_examples": "passed",
+    "diagnostic_clis": "passed; native memory-refresh JSON, device-info TSV, and benchmark JSON-only output",
+    "benchmark_shell_syntax": "passed",
     "normalized_json_reports": {
       "equal": true,
       "groups": 9356,
