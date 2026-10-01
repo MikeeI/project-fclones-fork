@@ -203,6 +203,8 @@ impl StreamHasher for Sha3_512 {
     }
 }
 
+const DEFAULT_HASH_BUFFER_SIZE: usize = 64 * 1024;
+
 /// Hashes file contents
 pub struct FileHasher<'a> {
     pub(crate) algorithm: HashFn,
@@ -217,7 +219,7 @@ impl FileHasher<'_> {
     pub fn new(algorithm: HashFn, transform: Option<Transform>, log: &dyn Log) -> FileHasher<'_> {
         FileHasher {
             algorithm,
-            buf_len: 65536,
+            buf_len: DEFAULT_HASH_BUFFER_SIZE,
             cache: None,
             transform,
             log,
@@ -234,7 +236,7 @@ impl FileHasher<'_> {
         let cache = HashCache::open_default(transform_command_str, algorithm)?;
         Ok(FileHasher {
             algorithm,
-            buf_len: 65536,
+            buf_len: DEFAULT_HASH_BUFFER_SIZE,
             cache: Some(cache),
             transform,
             log,
@@ -627,7 +629,7 @@ fn file_hash<H: StreamHasher>(
     buf_len: usize,
     progress: impl Fn(usize),
 ) -> io::Result<FileHash> {
-    let access = if chunk.len.0 < 64 * 1024 {
+    let access = if chunk.len.0 < buf_len as u64 {
         FileAccess::Random
     } else {
         FileAccess::Sequential
