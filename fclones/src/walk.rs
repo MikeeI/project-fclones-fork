@@ -7,11 +7,15 @@ use std::{fs, io};
 use crate::FileId;
 use dashmap::DashSet;
 use ignore::gitignore::{Gitignore, GitignoreBuilder};
+use itertools::Itertools;
 use rayon::Scope;
+use smallvec::SmallVec;
 
 use crate::log::{Log, LogExt};
 use crate::path::Path;
 use crate::selector::PathSelector;
+
+const FILE_BATCH_SIZE: usize = 32;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 enum EntryType {
@@ -372,11 +376,36 @@ impl<'a> Walk<'a> {
 
         match fs::read_dir(path.to_path_buf()) {
             Ok(rd) => {
-                for entry in Self::sorted_entries(path, rd) {
-                    let gitignore = gitignore.clone();
-                    scope.spawn(move |s| {
-                        self.visit_entry(entry, dev, s, level + 1, gitignore, state)
-                    })
+                for (regular_files, entries) in
+                    &Self::sorted_entries(path, rd).group_by(|e| e.tpe == EntryType::File)
+                {
+                    if regular_files {
+                        for batch in &entries.chunks(FILE_BATCH_SIZE) {
+                            let batch: SmallVec<[Entry; FILE_BATCH_SIZE]> = batch.collect();
+                            let gitignore = gitignore.clone();
+                            scope.spawn(move |s| {
+                                // Preserve local LIFO inode order within each file batch.
+                                for entry in batch.into_iter().rev() {
+                                    self.visit_entry(
+                                        entry,
+                                        dev,
+                                        s,
+                                        level + 1,
+                                        gitignore.clone(),
+                                        state,
+                                    );
+                                }
+                            });
+                        }
+                    } else {
+                        // Directories and links remain independently stealable recursive tasks.
+                        for entry in entries {
+                            let gitignore = gitignore.clone();
+                            scope.spawn(move |s| {
+                                self.visit_entry(entry, dev, s, level + 1, gitignore, state)
+                            });
+                        }
+                    }
                 }
             }
             Err(e) => self.log_warn(format!("Failed to read dir {}: {}", path.display(), e)),
