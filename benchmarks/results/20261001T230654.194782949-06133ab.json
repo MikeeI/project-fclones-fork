@@ -1,0 +1,79 @@
+{
+  "status": "complete",
+  "exit_code": 0,
+  "results": [
+    {
+      "command": "'/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.bTPjOjj4cy' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/tmp/fclones-ssd-zkMtjG7M/data'",
+      "mean": 1.765214758,
+      "stddev": 0.23204884259770944,
+      "median": 1.646304924,
+      "user": 2.986933333333333,
+      "system": 10.550853333333334,
+      "min": 1.6167225570000001,
+      "max": 2.032616793,
+      "times": [
+        1.6167225570000001,
+        1.646304924,
+        2.032616793
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "started_at": "2026-10-01T23:06:54.192054245Z",
+    "dataset": "/tmp/fclones-ssd-zkMtjG7M/data",
+    "command": "'/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.bTPjOjj4cy' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/tmp/fclones-ssd-zkMtjG7M/data'",
+    "checkout_revision": "06133ab25e7d0cd11e9ea308513e277b1ebf0a76",
+    "binary_sha256": "3824828ba1c6e1207484cf41b8e5522e6ba60b896627f4a60b32e11f364c2d26",
+    "hash_fn": "metro",
+    "hash_cache_home": "",
+    "page_cache": "no host-wide flush; warmup is not a residency guarantee; application policy unchanged",
+    "devices": [
+      {
+        "path": "/tmp/fclones-ssd-zkMtjG7M/data",
+        "device": "/dev/mapper/vg0-root",
+        "kind": "SSD",
+        "file_system": "ext4",
+        "configured_random_threads": 8,
+        "configured_sequential_threads": 8,
+        "resolved_random_threads": 8,
+        "resolved_sequential_threads": 8
+      }
+    ],
+    "warmup_runs": 1,
+    "requested_runs": 3,
+    "time_limit_seconds": 29
+  },
+  "finished_at": "2026-10-01T23:07:01.017542711Z",
+  "diagnostics": "Benchmark 1: '/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.bTPjOjj4cy' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/tmp/fclones-ssd-zkMtjG7M/data'\n[2026-10-02 01:06:54.227] fclones:  info: Started grouping\n[2026-10-02 01:06:54.445] fclones:  info: Scanned 156303 file entries\n[2026-10-02 01:06:54.445] fclones:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-02 01:06:54.469] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-02 01:06:54.471] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-02 01:06:54.590] fclones:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-02 01:06:54.603] fclones:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-02 01:06:55.685] fclones:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-02 01:06:55.722] fclones:  info: Started grouping\n[2026-10-02 01:06:55.942] fclones:  info: Scanned 156303 file entries\n[2026-10-02 01:06:55.943] fclones:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-02 01:06:55.965] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-02 01:06:55.967] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-02 01:06:56.099] fclones:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-02 01:06:56.113] fclones:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-02 01:06:57.301] fclones:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-02 01:06:57.339] fclones:  info: Started grouping\n[2026-10-02 01:06:57.561] fclones:  info: Scanned 156303 file entries\n[2026-10-02 01:06:57.561] fclones:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-02 01:06:57.585] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-02 01:06:57.587] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-02 01:06:57.718] fclones:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-02 01:06:57.732] fclones:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-02 01:06:58.952] fclones:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-02 01:06:58.985] fclones:  info: Started grouping\n[2026-10-02 01:06:59.207] fclones:  info: Scanned 156303 file entries\n[2026-10-02 01:06:59.207] fclones:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-02 01:06:59.234] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-02 01:06:59.236] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-02 01:06:59.376] fclones:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-02 01:06:59.392] fclones:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-02 01:07:00.983] fclones:  info: Found 22040 (10.9 GB) redundant files\n  Time (mean ± σ):      1.765 s ±  0.232 s    [User: 2.987 s, System: 10.551 s]\n  Range (min … max):    1.617 s …  2.033 s    3 runs\n \n",
+  "resource_samples": [
+    {
+      "max_rss_kib": 44088,
+      "user_seconds": 2.76,
+      "system_seconds": 8.64,
+      "elapsed_seconds": 1.49
+    },
+    {
+      "max_rss_kib": 47028,
+      "user_seconds": 2.96,
+      "system_seconds": 9.43,
+      "elapsed_seconds": 1.61
+    },
+    {
+      "max_rss_kib": 47228,
+      "user_seconds": 2.91,
+      "system_seconds": 9.74,
+      "elapsed_seconds": 1.64
+    },
+    {
+      "max_rss_kib": 43472,
+      "user_seconds": 3.07,
+      "system_seconds": 12.47,
+      "elapsed_seconds": 2.03
+    }
+  ]
+}

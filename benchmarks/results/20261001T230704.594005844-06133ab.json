@@ -1,0 +1,79 @@
+{
+  "status": "complete",
+  "exit_code": 0,
+  "results": [
+    {
+      "command": "'/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.tjFxIS6cHp' 'env' 'XDG_CACHE_HOME=/tmp/fclones-ssd-zkMtjG7M/cache' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/tmp/fclones-ssd-zkMtjG7M/data' '--cache'",
+      "mean": 0.4792749143333334,
+      "stddev": 0.008990970580879824,
+      "median": 0.48284640500000003,
+      "user": 2.0109646666666667,
+      "system": 1.0515056666666664,
+      "min": 0.46904696,
+      "max": 0.485931378,
+      "times": [
+        0.48284640500000003,
+        0.485931378,
+        0.46904696
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "started_at": "2026-10-01T23:07:04.591165083Z",
+    "dataset": "/tmp/fclones-ssd-zkMtjG7M/data",
+    "command": "'/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.tjFxIS6cHp' 'env' 'XDG_CACHE_HOME=/tmp/fclones-ssd-zkMtjG7M/cache' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/tmp/fclones-ssd-zkMtjG7M/data' '--cache'",
+    "checkout_revision": "06133ab25e7d0cd11e9ea308513e277b1ebf0a76",
+    "binary_sha256": "3824828ba1c6e1207484cf41b8e5522e6ba60b896627f4a60b32e11f364c2d26",
+    "hash_fn": "metro",
+    "hash_cache_home": "/tmp/fclones-ssd-zkMtjG7M/cache",
+    "page_cache": "no host-wide flush; warmup is not a residency guarantee; application policy unchanged",
+    "devices": [
+      {
+        "path": "/tmp/fclones-ssd-zkMtjG7M/data",
+        "device": "/dev/mapper/vg0-root",
+        "kind": "SSD",
+        "file_system": "ext4",
+        "configured_random_threads": 8,
+        "configured_sequential_threads": 8,
+        "resolved_random_threads": 8,
+        "resolved_sequential_threads": 8
+      }
+    ],
+    "warmup_runs": 1,
+    "requested_runs": 3,
+    "time_limit_seconds": 29
+  },
+  "finished_at": "2026-10-01T23:07:06.541378563Z",
+  "diagnostics": "Benchmark 1: '/usr/bin/time' '-f' '%M %U %S %e' '-a' '-o' '/tmp/tmp.tjFxIS6cHp' 'env' 'XDG_CACHE_HOME=/tmp/fclones-ssd-zkMtjG7M/cache' '/root/projects/project-fclones-fork/target/release/fclones' 'group' '--threads' 'main:8' '--threads' 'default:8,8' '--hash-fn' 'metro' '--hidden' '--no-ignore' '--output' '/dev/null' '/tmp/fclones-ssd-zkMtjG7M/data' '--cache'\n[2026-10-02 01:07:04.629] fclones:  info: Started grouping\n[2026-10-02 01:07:04.862] fclones:  info: Scanned 156303 file entries\n[2026-10-02 01:07:04.862] fclones:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-02 01:07:04.887] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-02 01:07:04.889] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-02 01:07:05.015] fclones:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-02 01:07:05.027] fclones:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-02 01:07:05.049] fclones:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-02 01:07:05.104] fclones:  info: Started grouping\n[2026-10-02 01:07:05.342] fclones:  info: Scanned 156303 file entries\n[2026-10-02 01:07:05.342] fclones:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-02 01:07:05.366] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-02 01:07:05.367] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-02 01:07:05.500] fclones:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-02 01:07:05.511] fclones:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-02 01:07:05.534] fclones:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-02 01:07:05.587] fclones:  info: Started grouping\n[2026-10-02 01:07:05.828] fclones:  info: Scanned 156303 file entries\n[2026-10-02 01:07:05.828] fclones:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-02 01:07:05.853] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-02 01:07:05.856] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-02 01:07:05.989] fclones:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-02 01:07:06.000] fclones:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-02 01:07:06.022] fclones:  info: Found 22040 (10.9 GB) redundant files\n[2026-10-02 01:07:06.073] fclones:  info: Started grouping\n[2026-10-02 01:07:06.309] fclones:  info: Scanned 156303 file entries\n[2026-10-02 01:07:06.309] fclones:  info: Found 131439 (153.7 GB) files matching selection criteria\n[2026-10-02 01:07:06.334] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by size\n[2026-10-02 01:07:06.336] fclones:  info: Found 61954 (12.2 GB) candidates after grouping by paths\n[2026-10-02 01:07:06.456] fclones:  info: Found 22513 (11.2 GB) candidates after grouping by prefix\n[2026-10-02 01:07:06.468] fclones:  info: Found 22502 (11.1 GB) candidates after grouping by suffix\n[2026-10-02 01:07:06.490] fclones:  info: Found 22040 (10.9 GB) redundant files\n  Time (mean ± σ):     479.3 ms ±   9.0 ms    [User: 2011.0 ms, System: 1051.5 ms]\n  Range (min … max):   469.0 ms … 485.9 ms    3 runs\n \n",
+  "resource_samples": [
+    {
+      "max_rss_kib": 102188,
+      "user_seconds": 1.92,
+      "system_seconds": 1.08,
+      "elapsed_seconds": 0.47
+    },
+    {
+      "max_rss_kib": 101672,
+      "user_seconds": 2.03,
+      "system_seconds": 1.06,
+      "elapsed_seconds": 0.48
+    },
+    {
+      "max_rss_kib": 102560,
+      "user_seconds": 2.04,
+      "system_seconds": 1.07,
+      "elapsed_seconds": 0.48
+    },
+    {
+      "max_rss_kib": 102944,
+      "user_seconds": 1.95,
+      "system_seconds": 1.01,
+      "elapsed_seconds": 0.46
+    }
+  ]
+}
