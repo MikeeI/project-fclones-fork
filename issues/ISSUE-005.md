@@ -20,7 +20,7 @@ Source: `upstream/main@a74f90d293e05856d19a4c0ac2b29b46ef16cf23`
 
 [S] `file_hash` invokes this check after successful reads; hash-cache hits and transformed streams bypass it.
 [O] A standalone 10,000-iteration comparison measures substantial constructor overhead.
-[A] End-to-end benefit depends on eligible file count and the workload's other costs.
+[O] A real-corpus CPU profile attributes 1.94% of sampled CPU work to construction, not elapsed-time savings.
 
 ## Evidence
 
@@ -40,7 +40,8 @@ Contribution fit: a bounded caller optimization would be useful only if fresh-in
 
 ## Proposed-Change
 
-Investigate memory-only initialization or a public reset/success API before considering thread-local reuse.
+Propose an additive Linux/Android `System::reset_memory(&mut self)` API for pinned `sysinfo 0.29.10`.
+Reset all nine memory-refresh fields before every existing refresh, then consider worker-local reuse.
 Do not apply TLS-only reuse: it changes decisions after silent or partial refresh failures.
 
 ## Scope-and-Constraints
@@ -52,12 +53,46 @@ Do not apply TLS-only reuse: it changes decisions after silent or partial refres
 - Authorization: the user requested implementation of all six reviewed SSD measures.
 - Production reuse remains conditional on preserving the recorded successful and failed refresh behavior.
 
+## API-and-Compatibility
+
+[S] `src/linux/system.rs:154-162,252-318` owns all nine fields read or written by the memory refresh.
+The following proposal is not applied or runtime-verified:
+
+```diff
++impl System {
++    pub fn reset_memory(&mut self) {
++        // Clear every refresh-owned field to preserve fresh-instance behavior on partial input.
++        self.mem_total = 0;
++        self.mem_free = 0;
++        self.mem_available = 0;
++        self.mem_buffers = 0;
++        self.mem_page_cache = 0;
++        self.mem_shmem = 0;
++        self.mem_slab_reclaimable = 0;
++        self.swap_total = 0;
++        self.swap_free = 0;
++    }
++}
+```
+
+The caller must execute `reset_memory(); refresh_memory()` on its own worker-local instance before each query.
+[S] The Linux refresh reads no process, CPU, boot, or network state, so those constructor side effects need not repeat.
+Leave `/proc/meminfo` parsing, `MemAvailable` fallback, and both cgroup branches unchanged.
+An inherent backend method avoids adding a required method to the public, unsealed `SystemExt` trait.
+A portable API would need matching fresh-memory resets in every platform backend.
+This proposal covers the pinned dependency only; current sysinfo API fit and maintainer preference remain unknown.
+
 ## Verification
 
 [O] The release example `memory-refresh` ran five comparisons with 10,000 iterations each on Rust 1.74.1.
 [S] The pinned dependency exposes no safe reset for its private memory fields.
 [O] The compiler probe also ruled out cloning a fresh zero-memory prototype before each refresh.
 No production hashing change was applied because TLS-only reuse does not meet the preserved failure contract.
+[O] `archive-corpus` reproduced all real size, prefix, prefix-suffix, and content-group partitions without source bytes.
+[O] Actual default cached and uncached scans of that generated corpus produced identical duplicate reports.
+Required after any reset implementation: compare reset-plus-refresh with fresh-plus-refresh under isolated input faults.
+Cover complete and partial `/proc/meminfo`, missing input, and cgroup v1/v2 fallback paths in disposable namespaces.
+Do not modify host `/proc` or `/sys`, add permanent tests, or treat a source audit as fault-injection proof.
 
 ## Performance-Evidence
 
@@ -70,16 +105,29 @@ These are isolated costs, not an observed application speedup.
 The advised ranges totaled 2,086,172,485 bytes; successful advice does not prove actual eviction.
 [A] Multiplying eligible checks by the isolated constructor rate gives a 0.206 s serial-time proxy, not wall-time savings.
 Record: `benchmarks/results/20261001-performance-followup.json`.
+[O] A 499 Hz CPU profile with 32 KiB DWARF stacks recorded 7,682 samples and zero lost samples.
+[O] Construction appeared in 149 samples: 0.298597192 s of aggregate CPU time, or 1.9396% of sampled CPU work.
+[O] Memory refresh appeared in 62 samples, or 0.8071% of sampled CPU work.
+[O] Direct child-PID uprobes observed 4,305 constructors, including one device-initialization constructor.
+[O] Summed instrumented entry-to-return duration was 0.284418761 s.
+Uprobe durations include probe overhead and scheduling; concurrent thread durations are not wall-time savings.
+An earlier four-process, 8 KiB-stack profile had inconsistent attribution and is not the accepted percentage estimate.
+Zero lost samples does not guarantee complete call stacks.
+The preferred scan took 2.48 s; a separate three-run uninstrumented median was 2.959777416 s.
+Different residency and shared-host load prevent interpreting that difference as profiler overhead or speedup.
+Record: `benchmarks/results/20261001-memory-constructor-profile.json`.
+The measured cost supports a small API proposal, not a dependency fork; contribution priority remains Low.
 
 ## Publication-Blockers
 
-A behavior-preserving implementation, end-to-end evidence, prior-art research, target selection, and approval remain absent.
+A verified implementation, elapsed-time benefit, current sysinfo API fit, and prior-art research remain absent.
+Target selection and approval remain required for publication.
 
 ## Next-Action
 
-Summary: Resolve refresh failure contract
-Action: Establish a memory-reset or refresh-success API that preserves fresh-instance failure behavior.
-Done-When: A scoped implementation can preserve both successful and incomplete refresh semantics.
+Summary: Assess upstream reset API
+Action: Check current sysinfo API and prior art for an additive memory-reset operation.
+Done-When: Evidence identifies a compatible adoption path without a dependency fork or changed failure semantics.
 
 ## Pull-Request-Implementation
 
